@@ -42,6 +42,7 @@ describe('Recursive depth', () => {
         it.optional('works recursively', () => {
             const spy1 = sinon.spy(instance, 'calculateDepth');
             assert.equal(calculateDepth([1, 2, 3, 4, [1, 2, [1, 2, [[[]]]]], 5, [1, [[[[[[]]]]]]]]), 8);
+			console.log(calculateDepth([1, 2, 3, 4, [1, 2, [1, 2, [[[]]]]], 5, [1, [[[[[[]]]]]]]]),spy1.callCount)
             expect(spy1.callCount).to.be.greaterThan(1);
             spy1.restore();
             const spy2 = sinon.spy(instance, 'calculateDepth');
